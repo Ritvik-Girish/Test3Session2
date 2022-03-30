@@ -11,7 +11,7 @@ Fraction input_fraction()
   scanf("%d%d",&f.num,&f.den);
   return f;
 }
-Fraction find_smallest( Fraction f1 Fraction f2, Fraction f3)
+Fraction find_smallest( Fraction f1,Fraction f2,Fraction f3)
 {
   int common_denominator = f1.den * f2.den * f3.den;
   int num1 = f1.num * common_denominator/f1.den;
