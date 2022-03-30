@@ -1,1 +1,90 @@
+GNU bash, version 4.4.20(1)-release (x86_64-pc-linux-gnu)
+ gcc -g p1final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x910: file p1final.c, line 28.
+(gdb) r
+Starting program: /home/runner/Test3Session2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p1final.c:28
+28  int main(){
+(gdb) n
+30    input(&num1,&den1,&num2,&den2);
+(gdb) s
+input (num1=0x7ffc6e76a290, den1=0x7ffc6e76a294, num2=0x7ffc6e76a298, 
+    den2=0x7ffc6e76a29c) at p1final.c:3
+3     printf("enter the numerator for 1\n");
+(gdb) n
+enter the numerator for 1
+4     scanf("%d",num1);
+(gdb) n
+3
+5     printf("enter the denominator for 1\n");
+(gdb) n
+enter the denominator for 1
+6     scanf("%d",den1);
+(gdb) n
+5
+7     printf("enter the numerator for 2\n");
+(gdb) n
+enter the numerator for 2
+8     scanf("%d",num2);
+(gdb) n
+4
+9     printf("enter the denominator for 2\n");
+(gdb) n
+enter the denominator for 2
+10    scanf("%d",den2);
+(gdb) n
+7
+11  }
+(gdb) n
+main () at p1final.c:31
+31    add(num1,den1,num2,den2,&totalnum,&totalden);
+(gdb) s
+add (num1=3, den1=5, num2=4, den2=7, totalnum=0x7ffc6e76a2a0, 
+    totalden=0x7ffc6e76a2a4) at p1final.c:15
+15    *totalnum=((num1*den2)+(num2*den1));
+(gdb) n
+16    *totalden=(den1*den2);
+(gdb) n
+17    for(int i=1; i<=*totalnum && i<=*totalden; i++){
+(gdb) n
+18      if(*totalnum%i==0 && *totalden%i==0)
+(gdb) n
+19         gcd=i;
+20   printf("the sum is = %d/%d of ",*totalnum/gcd,*totalden/gcd);
+(gdb) 
+21  }
+(gdb) 
+main () at p1final.c:32
+32    output(num1,den1,num2,den2);
+(gdb) s
+output (num1=3, den1=5, num2=4, den2=7) at p1final.c:25
+25    printf(" %d/%d + %d/%d ",num1,den1,num2,den2);
+(gdb) n
+26  }
+(gdb) n
+main () at p1final.c:33
+33    return 0;
+(gdb) n
+34    }(gdb) c
+Continuing.
+the sum is = 41/35 of  3/5 + 4/7 [Inferior 1 (process 108) exited normally]
+(gdb)
